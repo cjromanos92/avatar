@@ -1,6 +1,102 @@
-List<String> accessories = ['accessory_kurt.png', 'accessory_wayfarers.png'];
-List<String> clothing = ['clothes_hoodie.png', 'clothes_shirt_crew_neck.png'];
-List<String> eyebrows = ['eyebrow_angry_2.png', 'eyebrow_default.png'];
-List<String> eyes = ['eyes_default.png', 'eyes_happy.png'];
-List<String> hair = ['top_short_dreads_01.png', 'top_short_sides.png'];
-List<String> mouth = ['mouth_default.png', 'mouth_smile.png'];
+List<String> accessoriesList = [
+  'accessory_none.png',
+  'accessory_kurt.png',
+  'accessory_prescr_01.png',
+  'accessory_prescr_02.png',
+  'accessory_round.png',
+  'accessory_sunglasses.png',
+  'accessory_wayfarers.png',];
+
+List<String> clothingList = [
+  'clothes_blazer.png',
+  'clothes_hoodie.png',
+  'clothes_overall.png',
+  'clothes_shirt_crew_neck.png',
+  'clothes_shirt_rochester.png',
+  'clothes_shirt_scoop_neck.png',
+  'clothes_shirt_v_neck.png',
+  'clothes_sweater.png',];
+
+List<String> eyebrowsList = [
+  'eyebrow_default.png',
+  'eyebrow_angry.png',
+  'eyebrow_angry_2.png',
+  'eyebrow_default.png',
+  'eyebrow_default_2.png',
+  'eyebrow_excited.png',
+  'eyebrow_excited_2.png',
+  'eyebrow_flat.png',
+  'eyebrow_frown.png',
+  'eyebrow_sad.png',
+  'eyebrow_sad_2.png',
+  'eyebrow_unibrow.png',
+  'eyebrow_updown.png',
+  'eyebrow_updown_2.png',];
+
+List<String> eyesList = [
+  'eyes_default.png',
+  'eyes_closed.png',
+  'eyes_cry.png',
+  'eyes_default.png',
+  'eyes_dizzy.png',
+  'eyes_happy.png',
+  'eyes_hearts.png',
+  'eyes_roll.png',
+  'eyes_side.png',
+  'eyes_squint.png',
+  'eyes_surprised.png',
+  'eyes_wink.png',
+  'eyes_winkwacky.png',];
+
+List<String> hairList = [
+  'top_short_caesar.png',
+  'top_hat.png',
+  'top_hijab.png',
+  'top_long_big.png',
+  'top_long_bob.png',
+  'top_long_bun.png',
+  'top_long_curly.png',
+  'top_long_curvy.png',
+  'top_long_dreads.png',
+  'top_long_frida.png',
+  'top_long_fro.png',
+  'top_long_froband.png',
+  'top_long_miawallace.png',
+  'top_long_nottoolong.png',
+  'top_long_shavedside.png',
+  'top_long_straight.png',
+  'top_long_straight_2.png',
+  'top_long_straight_strand.png',
+  'top_short_caesar.png',
+  'top_short_caesar_side.png',
+  'top_short_curly.png',
+  'top_short_dreads_01.png',
+  'top_short_dreads_02.png',
+  'top_short_flat.png',
+  'top_short_frizzle.png',
+  'top_short_round.png',
+  'top_short_shaggy.png',
+  'top_short_shaggy_mullet.png',
+  'top_short_sides.png',
+  'top_short_waved.png',
+  'top_turban.png',
+  'top_winter_hat_1.png',
+  'top_winter_hat_2.png',
+  'top_winter_hat_3.png',
+  'top_winter_hat_4.png',];
+
+List<String> mouthList = [
+  'mouth_default.png',
+  'mouth_concerned.png',
+  'mouth_disbelief.png',
+  'mouth_eating.png',
+  'mouth_grimace.png',
+  'mouth_sad.png',
+  'mouth_scream.png',
+  'mouth_serious.png',
+  'mouth_smile.png',
+  'mouth_tongue.png',
+  'mouth_twinkle.png',
+  'mouth_vomit.png',];
+
+List<String> skinList = ['body_default1.png'];

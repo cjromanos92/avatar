@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:avatar/images.dart';
 
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -38,7 +37,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int index = 0;
+  int accessoryIndex = 0;
+  int clothingIndex = 0;
+  int eyebrowIndex = 0;
+  int eyeIndex = 0;
+  int hairIndex = 0;
+  int mouthIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,102 +52,192 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Center(
             child: Column(children: [
-          Text('Avatar Builder'),
           SizedBox(width: 275,
-            child: Stack(
-              children: [
-                Image.asset('assets/mouth/body_default.png'),
-                Image.asset('assets/accessory/accessory_kurt.png'),
-                //Image.asset('assets/accessory/$accessories'),
-                Image.asset('assets/clothing/clothes_hoodie.png'),
-                // Image.asset('assets/accessory/${clothing[index]}'),
-                Image.asset('assets/eyebrows/eyebrow_default.png'),
-                // Image.asset('assets/accessory/${eyebrows[index]}'),
-                Image.asset('assets/eyes/eyes_default.png'),
-                // Image.asset('assets/accessory/${eyes[index]}'),
-                Image.asset('assets/hair/top_short_dreads_01.png'),
-                // Image.asset('assets/accessory/${hair[index]}'),
-                Image.asset('assets/mouth/mouth_default.png'),
-                // Image.asset('assets/accessory/${mouth[index]}'),
-              ],
+            child: Center(
+              child: Stack(
+                children: [
+                  Image.asset('assets/skin/${skinList[0]}'),
+                  Image.asset('assets/hair/${hairList[hairIndex]}'),
+                  Image.asset('assets/clothing/${clothingList[clothingIndex]}'),
+                  Image.asset('assets/eyebrow/${eyebrowsList[eyebrowIndex]}'),
+                  Image.asset('assets/eyes/${eyesList[eyeIndex]}'),
+                  Image.asset('assets/mouth/${mouthList[mouthIndex]}'),
+                  Image.asset('assets/accessories/${accessoriesList[accessoryIndex]}'),
+                ],
+              ),
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(accessoryIndex == 0){
+                    accessoryIndex = accessoriesList.length-1;
+                  }else {
+                    accessoryIndex = accessoryIndex - 1;
+                  }});
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Accessory')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Accessory')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(accessoryIndex == accessoriesList.length-1){
+                    accessoryIndex = 0;
+                  }else {
+                    accessoryIndex = accessoryIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(clothingIndex == 0){
+                    clothingIndex = clothingList.length-1;
+                  }else {
+                    clothingIndex = clothingIndex - 1;
+                  }
+                });
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Clothing')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Clothing')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(clothingIndex == clothingList.length-1){
+                    clothingIndex = 0;
+                  }else {
+                    clothingIndex = clothingIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(eyebrowIndex == 0){
+                    eyebrowIndex = eyebrowsList.length-1;
+                  }else {
+                    eyebrowIndex = eyebrowIndex - 1;
+                  }
+                });
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Eyebrows')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Eyebrows')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(eyebrowIndex == eyebrowsList.length-1){
+                    eyebrowIndex = 0;
+                  }else {
+                    eyebrowIndex = eyebrowIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(eyeIndex == 0){
+                    eyeIndex = eyesList.length-1;
+                  }else {
+                    eyeIndex = eyeIndex - 1;
+                  }
+                });
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Eyes')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Eyes')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(eyeIndex == eyesList.length-1){
+                    eyeIndex = 0;
+                  }else {
+                    eyeIndex = eyeIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(hairIndex == 0){
+                    hairIndex = hairList.length-1;
+                  }else {
+                    hairIndex = hairIndex - 1;
+                  }
+                });
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Hair')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Hair')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(hairIndex == hairList.length-1){
+                    hairIndex = 0;
+                  }else {
+                    hairIndex = hairIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              (Icon(Icons.arrow_left, size: 45,)),
+              (TextButton(child:const Icon(Icons.arrow_left, size: 45,), onPressed: (){
+                setState(() {
+                  if(mouthIndex == 0){
+                    mouthIndex = mouthList.length-1;
+                  }else {
+                    mouthIndex = mouthIndex - 1;
+                  }
+                });
+              })),
               SizedBox(
                   width: 200,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Mouth')])),
-              Icon(Icons.arrow_right, size: 45,)
+                      children: const [Text('Mouth')])),
+              (TextButton(child:const Icon(Icons.arrow_right, size: 45,), onPressed: (){
+                setState(() {
+                  if(mouthIndex == mouthList.length-1){
+                    mouthIndex = 0;
+                  }else {
+                    mouthIndex = mouthIndex + 1;
+                  }
+                });
+              })),
             ],
           ),
         ])));
