@@ -1,5 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:avatar/images.dart';
+import 'package:flutter/services.dart';
+import 'package:image/image.dart' as pics;
+import 'package:avatar/show_pic.dart';
 
 
 void main() {
@@ -49,6 +53,55 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            final ByteData skinBytes = await rootBundle.load('assets/skin/${skinList[0]}');
+            final Uint8List skinInt = skinBytes.buffer.asUint8List();
+            final imageSkin = pics.decodeImage(skinInt);
+
+            final ByteData accessoryBytes = await rootBundle.load('assets/accessories/${accessoriesList[accessoryIndex]}');
+            final Uint8List accessoryInt = accessoryBytes.buffer.asUint8List();
+            final imageAccessory = pics.decodeImage(accessoryInt);
+
+            final ByteData hairBytes = await rootBundle.load('assets/hair/${hairList[hairIndex]}');
+            final Uint8List hairInt = hairBytes.buffer.asUint8List();
+            final imageHair = pics.decodeImage(hairInt);
+
+            final ByteData clothingBytes = await rootBundle.load('assets/clothing/${clothingList[clothingIndex]}');
+            final Uint8List clothingInt = clothingBytes.buffer.asUint8List();
+            final imageClothing = pics.decodeImage(clothingInt);
+
+            final ByteData eyebrowBytes = await rootBundle.load('assets/eyebrow/${eyebrowsList[eyebrowIndex]}');
+            final Uint8List eyebrowInt = eyebrowBytes.buffer.asUint8List();
+            final imageEyebrow = pics.decodeImage(eyebrowInt);
+
+            final ByteData eyeBytes = await rootBundle.load('assets/eyes/${eyesList[eyeIndex]}');
+            final Uint8List eyeInt = eyeBytes.buffer.asUint8List();
+            final imageEye = pics.decodeImage(eyeInt);
+
+            final ByteData mouthBytes = await rootBundle.load('assets/mouth/${mouthList[mouthIndex]}');
+            final Uint8List mouthInt = mouthBytes.buffer.asUint8List();
+            final imageMouth = pics.decodeImage(mouthInt);
+
+
+
+            // final byteData = await rootBundle.load('assets/skin/${skinList[0]}');
+            // pics.Image? pic1 = pics.PngDecoder().decodeImage(byteData.buffer.asUint8List());
+            // final byteData2 = await rootBundle.load('assets/accessories/${accessoriesList[4]}');
+            // pics.Image? pics2 = pics.PngDecoder().decodeImage(byteData2.buffer.asUint8List());
+            var newPic = pics.copyInto(imageSkin!, imageClothing!);
+            newPic = pics.copyInto(newPic, imageEyebrow!);
+            newPic = pics.copyInto(newPic, imageAccessory!);
+            newPic = pics.copyInto(newPic, imageHair!);
+            newPic = pics.copyInto(newPic, imageMouth!);
+            newPic = pics.copyInto(newPic, imageEye!);
+            List<int> stackedImg = pics.encodePng(newPic);
+            // io.File stackedImgFinal = File.fromRawPath(Uint8List.fromList(stackedImg));
+            // io.File stackedImgFinal = io.File.fromRawPath(Uint8List.fromList(stackedImg));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ShowPic(stackedImg)));
+          },
         ),
         body: Center(
             child: Column(children: [
